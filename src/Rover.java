@@ -65,7 +65,7 @@ public class Rover extends Agent{
                 cfp.setConversationId("msge");
                 cfp.setReplyWith("cfp" + System.currentTimeMillis());
                 myAgent.send(cfp);
-                //System.out.println("Сообщение отправлено");
+                System.out.println("Сообщение отправлено мной "+rovers[me].getLocalName());
 
             }
             //---------------------------------------------------------------------

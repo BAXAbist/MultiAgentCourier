@@ -16,6 +16,10 @@ public class Rover extends Agent{
     private final AID operator = new AID("operator", AID.ISLOCALNAME);
     private final AID[] rovers = new AID[3];
     private int me;
+    private int Ox;
+    private int Oy;
+
+    private int[][] map = new int[10][10];
 
     private Random random = new Random();
 
@@ -61,7 +65,7 @@ public class Rover extends Agent{
                     if (i!=me)
                         cfp.addReceiver(rovers[i]);
                 cfp.addReceiver(operator);
-                cfp.setContent(String.valueOf("pit"));
+                cfp.setContent("pit:"+Ox+"-"+Oy);
                 cfp.setConversationId("msge");
                 cfp.setReplyWith("cfp" + System.currentTimeMillis());
                 myAgent.send(cfp);
@@ -78,6 +82,16 @@ public class Rover extends Agent{
         }
 
         private void move(){
+                if(random.nextInt(100)>50)
+                    if(random.nextInt(100)>50)
+                        Ox++;
+                    else
+                        Ox--;
+                else
+                    if(random.nextInt(100)>50)
+                        Oy++;
+                    else
+                        Oy--;
 
         }
 
